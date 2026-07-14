@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Mon site web</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .carte{
+                color:black;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:300px;
+                width: 200px;
+                border-radius: 15px;
+                flex-direction:column;
+                background: white;
+                
+            }
+            body{
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                height:100vh;
+                width:100vw;
+                flex-direction:column;
+                background: linear-gradient(135deg,#5826b5 0%,#764ba2 100%);
+            }
+            .btn-j-aime{
+                background: linear-gradient(135deg,#127179b1 0%,#dc2626 100%);
+                color:white;
+                font-size: 1.1rem;
+                padding: 12px 30px;
+                font-weight: 600;
+                border-radius: 50px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease; 
+            }
+            .btn-j-aime.aime{
+                background: linear-gradient(135deg,#2a5280 0%,#059669 100%);
+            }
+            .btn-j-aime:hover{
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(239,68,68,04);
+            }
+            .btn-j-aime:active{
+                transform: translateY(0px);
+            }
+            .message{
+                font-size: 20px;
+                font-weight: 600;
+                
+            }
+            .icone-coeur{
+                font-size: 4rem;
+                margin-bottom: 20px;
+             animation: battement 0.5ms ease infinite;
+            }
+            @keyframes battement{
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }_
+            .compteur{
+                margin-top: 20px;
+                font-size: 1.2rem;
+                color: #6b7280;
+            }
+            .compteur span{
+                font-weight:bold;
+                color:#ef4444;
+                font-size: 1.3rem;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="carte">
+            <div class="icone-coeur">❤️</div>
+
+            <p class="message">Cliquez !</p>
+            <button class="btn-j-aime" onclick="aimer()">J'aime</button>
+            <div class="compteur">
+                Nombre de clics : <span id="compteur">99999999</span>
+            </div>
+        </div>    
+        
+        
+        <script>
+            let nombreclic=999999999;
+            function aimer(){
+                nombreclic++;               
+                const bouton = document.querySelector('.btn-j-aime');
+                const compteur= document.getElementById('compteur');
+                bouton.classList.add('aime');
+                compteur.textContent = nombreclic;
+            }
+        </script>
+    </body>
+ </html> 
